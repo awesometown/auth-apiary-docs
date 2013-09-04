@@ -216,14 +216,12 @@ GET /rest/v2/games/{gameId}/apiKeys
     "results": [
         {
             "apiKeyId": "74d9be8f-9d18-42c6-8bc0-0041629dedd9",
-            "apiKeySecret": "03320c44-c830-45f2-a6e8-892637e98b74",
             "createdAt": "2013-04-08T14:23:50.062Z",
             "scope": ["to", "be", "determined"],
             "tag": "new tag"
         },
         {
             "apiKeyId": "5db4db83-2e21-4ea1-a2aa-fcc4764a5714",
-            "apiKeySecret": "0ded9260-e28c-405c-8b2c-37f039e241a7",
             "createdAt": "2013-04-08T14:23:28.383Z",
             "scope": ["to", "be", "determined"],
             "tag": "some other descriptive text"
@@ -256,11 +254,13 @@ POST /rest/v2/games/{gameId}/apiKeys
 < 201
 < Content-Type: application/json
 {
-    "apiKeyId": "74d9be8f-9d18-42c6-8bc0-0041629dedd9",
-    "apiKeySecret": "03320c44-c830-45f2-a6e8-892637e98b74",
-    "createdAt": "2013-04-08T14:23:50.062Z",
-    "scope": ["some", "permissions", "you", "want"],
-    "tag": "new tag"
+    "apiKey": {
+        "apiKeyId": "74d9be8f-9d18-42c6-8bc0-0041629dedd9",
+        "createdAt": "2013-04-08T14:23:50.062Z",
+        "scope": ["some", "permissions", "you", "want"],
+        "tag": "new tag"
+    },
+    "apiKeySecret": "03320c44-c830-45f2-a6e8-892637e98b74"
 }
 
 Delete an existing API key. Anyone using the key will no longer be able to access secured resources.
